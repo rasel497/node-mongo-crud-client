@@ -8,9 +8,22 @@ const Update = () => {
 
     const handleUpdateUser = event => {
         event.preventDefault();
-        console.log(user);
+        // console.log(user);
         // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_json_data
-
+        fetch(`http://localhost:5000/users/${sotredUser._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert('User successfully updated.');
+                    console.log(data);
+                }
+            })
     }
 
     const handleInputChange = event => {
