@@ -7,7 +7,19 @@ const AddUser = () => {
     const handleAddUser = event => {
         event.preventDefault();
         console.log(user);
+        // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_json_data
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
 
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
     }
 
     const handleInputBlur = event => {
