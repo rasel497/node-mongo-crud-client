@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 const AddUser = () => {
-    const [user, setUser] = useState({ name: 'deafult', email: 'default@gmail.com' });
-
+    const [user, setUser] = useState({});
 
     const handleAddUser = event => {
         event.preventDefault();
